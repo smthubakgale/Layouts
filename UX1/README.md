@@ -1,10 +1,10 @@
-# Pycon Desktop App
+# [App Name] [Platform] App
 =====================
 
 ## Description
 ------------
 
-Pycon is a desktop app designed to [briefly describe the purpose and functionality of your app]. It is built using [list the programming languages and frameworks used].
+[App Name] is a [platform] app designed to [briefly describe the purpose and functionality of your app]. It is built using [list the programming languages and frameworks used].
 
 ## Features
 --------
@@ -23,7 +23,7 @@ Pycon is a desktop app designed to [briefly describe the purpose and functionali
 ## Installation
 ------------
 
-1. Download the latest release from the [Releases](https://github.com/smthubakgale/Pycon/releases/tag/v2.0) page.
+1. Download the latest release from the [Releases](https://github.com/smthubakgale/[Repository name]/releases/tag/v2.0) page.
 2. Run the installer and follow the prompts.
 
 ## Usage
