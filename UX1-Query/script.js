@@ -182,7 +182,7 @@ function handleNavLinkClick(event) {
   event.preventDefault();
   
   const targetSection = event.target.getAttribute('href').substring(1); 
-  window.location.href = '?' + targetSection + '.html';
+  window.location.href = '?page=' + targetSection + '.html';
 }
 
 function handleSubNavTrigger(event) {
