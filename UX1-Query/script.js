@@ -151,6 +151,8 @@ function loadPage(pageUrl) {
       else if(src)
       { 
           src = src.replace('../', ''); 
+
+          console.log(src);
         
           fetch(src)
           .then(response => response.text())
