@@ -163,13 +163,13 @@ function loadPage(pageUrl) {
 .catch((error) => console.error(error));
 }
 
-const menuLinks = document.querySelectorAll('#menu a');
+const menuLinks = document.querySelectorAll('a');
 
 menuLinks.forEach(link => {
   link.addEventListener('click', event => {
-    event.preventDefault();
-    const pageUrl = link.getAttribute('data-page');
-    loadPage(pageUrl);
+    //event.preventDefault();
+    //const pageUrl = link.getAttribute('data-page');
+    //loadPage(pageUrl);
   });
 });
 
