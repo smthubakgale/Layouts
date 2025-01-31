@@ -152,10 +152,14 @@ function loadPage(pageUrl) {
       { 
           src = src.replace('../', ''); 
 
-          console.log(src);
-        
           fetch(src)
-          .then(response => response.text())
+          .then(response => {
+            if (response.ok) {
+              return response.text();
+            } else {
+              throw new Error(`Error: ${response.status}`);
+            }
+          })
           .then(jsCode => {
               const modifiedJsCode = addSectionIdToJs(jsCode, sectionId); 
               console.log(modifiedJsCode);
