@@ -157,10 +157,8 @@ function loadPage(pageUrl) {
               throw new Error(`Error: ${response.status}`);
             }
           })
-          .then(jsCode => {
-              console.log(jsCode);
-              const modifiedJsCode = addSectionIdToJs(jsCode, sectionId); 
-              console.log(modifiedJsCode, sectionId);
+          .then(jsCode => { 
+              const modifiedJsCode = addSectionIdToJs(jsCode, sectionId);  
               const modifiedScript = document.createElement('script');
               modifiedScript.textContent = modifiedJsCode;
               section.appendChild(modifiedScript);
