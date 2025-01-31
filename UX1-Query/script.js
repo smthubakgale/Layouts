@@ -175,14 +175,14 @@ if (page) {
     loadPage(page + '.html');
 } else {
     // Load the default page if no query parameter is provided
-    loadPage('home.html');
+    loadPage('home');
 }
 
 function handleNavLinkClick(event) {
   event.preventDefault();
   
   const targetSection = event.target.getAttribute('href').substring(1); 
-  window.location.href = '?page=' + targetSection + '.html';
+  window.location.href = '?page=' + targetSection ;
 }
 
 function handleSubNavTrigger(event) {
