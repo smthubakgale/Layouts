@@ -253,6 +253,9 @@ body {
 /* Responsive Design */
 /* Mobile Landscape or Tablet */
 @media only screen and (max-width: 768px) {
+  .main-content {
+    width:100%;
+  }
     .aside-toggle {
     display: block;
   }
