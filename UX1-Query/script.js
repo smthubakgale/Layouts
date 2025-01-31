@@ -57,6 +57,8 @@ function loadPage(pageUrl) {
   fetch('pages/' + pageUrl)
 .then((response) => response.text())
 .then((html) => {
+    console.log(html);
+  
     // Select all section elements
        const sections = document.querySelectorAll('section'); 
     // Loop through each section
