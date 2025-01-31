@@ -163,15 +163,6 @@ function loadPage(pageUrl) {
 .catch((error) => console.error(error));
 }
 
-const menuLinks = document.querySelectorAll('a');
-
-menuLinks.forEach(link => {
-  link.addEventListener('click', event => {
-    event.preventDefault(); 
-    const targetSection = document.querySelector(`#${event.target.getAttribute('href').substring(1)}`); 
-    window.location.href = '?' + targetSection + '.html';
-  });
-});
 // Function to get the query parameter value
 function getQueryParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);
