@@ -19,17 +19,50 @@ subNavTriggers.forEach(trigger => trigger.addEventListener('mouseout', handleSub
 accordionTriggers.forEach(trigger => trigger.addEventListener('click', handleAccordionTrigger));
 alertCloseButtons.forEach(button => button.addEventListener('click', handleAlertClose));
 
+// Get the main content container
+const mainContentContainer = document.getElementById('main-content');
+
 // Functions
-window.onload = function() {
-  const urlHash = window.location.hash.substring(1);
-  const targetSection = document.querySelector(`#${urlHash}`);
-  
-  if (targetSection) {
-    sections.forEach(section => section.classList.remove('active'));
-    targetSection.classList.add('active');
-    sideNav.classList.remove('mob-nav');
-  }
-};
+
+const routes = {
+  'home' : 'home.html' , 
+  'pricing' : 'pricing.html' ,  
+  'about' : 'about.html' ,  
+  'contact' : 'contact.html' ,  
+  'installation' : 'installation.html' ,  
+  'upgrades' : 'upgrades.html' ,  
+  'configuration' : 'configuration.html' ,  
+  'tutorial-1' : 'tutorial-1.html' ,  
+  'tutorial-2' : 'tutorial-2.html' ,  
+  'tutorial-3' : 'tutorial-3.html' ,  
+  'api-reference' : 'api-reference.html' ,  
+}
+
+// Function to load the main content dynamically
+function loadMainContent(url) {
+    fetch('pages/' + url)
+        .then(response => response.text())
+        .then(html => {
+            mainContentContainer.innerHTML = html;
+        })
+        .catch(error => console.error('Error loading main content:', error));
+}
+
+// Function to get the query parameter value
+function getQueryParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Load the page dynamically based on the query parameter
+const page = getQueryParameter('page');
+if (page && routes[page]) {
+    loadMainContent(routes[page]);
+} else {
+    // Load the default page if no query parameter is provided
+    loadMainContent('home.html');
+}
+
 function handleNavLinkClick(event) {
   event.preventDefault();
   
