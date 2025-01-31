@@ -53,15 +53,12 @@ function addSectionIdToJs(jsCode, sectionId) {
 }
 
 
-function loadPage(pageUrl) {
-  console.log(pageUrl);
+function loadPage(pageUrl) { 
   clearSections();
 
   fetch('pages/' + pageUrl)
 .then((response) => response.text())
-.then((html) => {
-    console.log(html);
-  
+.then((html) => {   
     // Select all section elements
        const sections = document.querySelectorAll('section'); 
     // Loop through each section
@@ -162,7 +159,6 @@ function loadPage(pageUrl) {
           })
           .then(jsCode => {
               const modifiedJsCode = addSectionIdToJs(jsCode, sectionId); 
-              console.log(modifiedJsCode);
               const modifiedScript = document.createElement('script');
               modifiedScript.textContent = modifiedJsCode;
               section.appendChild(modifiedScript);
