@@ -51,6 +51,7 @@ function addSectionIdToJs(jsCode, sectionId) {
 
 
 function loadPage(pageUrl) {
+  console.log(pageUrl);
   clearSections();
 
   fetch('pages/' + pageUrl)
