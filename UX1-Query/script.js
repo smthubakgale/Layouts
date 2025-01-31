@@ -173,8 +173,14 @@ menuLinks.forEach(link => {
   });
 });
 
-// Load home page by default
-loadPage('home.html');
+// Load the page dynamically based on the query parameter
+const page = getQueryParameter('page');
+if (page) {
+    loadPage(page + '.html');
+} else {
+    // Load the default page if no query parameter is provided
+    loadPage('home.html');
+}
 
 function handleNavLinkClick(event) {
   event.preventDefault();
