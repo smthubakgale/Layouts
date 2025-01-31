@@ -22,6 +22,7 @@ alertCloseButtons.forEach(button => button.addEventListener('click', handleAlert
 function clearSections() {
   document.querySelectorAll('section').forEach((section) => {
     section.innerHTML = '';
+    section.classList.remove('active');
   });
 }
 
@@ -164,6 +165,9 @@ function loadPage(pageUrl) {
           }
       
     });
+   // Display Current Section
+      section.classList.remove('active');
+   //
   })
 .catch((error) => console.error(error));
 }
