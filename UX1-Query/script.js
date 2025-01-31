@@ -158,7 +158,7 @@ function loadPage(pageUrl) {
             }
           })
           .then(jsCode => {
-              console.log(jscode);
+              console.log(jsCode);
               const modifiedJsCode = addSectionIdToJs(jsCode, sectionId); 
               console.log(modifiedJsCode, sectionId);
               const modifiedScript = document.createElement('script');
