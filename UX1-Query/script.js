@@ -94,8 +94,6 @@ function loadPage(pageUrl) {
     const sectionId = `${pageName}`;
     const section = document.getElementById(sectionId);
 
-    console.log(sectionId);
-    console.log(section);
     // Add CSS
     styles.forEach(style =>{
        const htm = style.innerHTML; 
