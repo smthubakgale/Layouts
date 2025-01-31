@@ -167,9 +167,9 @@ const menuLinks = document.querySelectorAll('a');
 
 menuLinks.forEach(link => {
   link.addEventListener('click', event => {
-    //event.preventDefault();
-    //const pageUrl = link.getAttribute('data-page');
-    //loadPage(pageUrl);
+    event.preventDefault(); 
+    const targetSection = document.querySelector(`#${event.target.getAttribute('href').substring(1)}`); 
+    window.location.href = '?' + targetSection + '.html';
   });
 });
 
