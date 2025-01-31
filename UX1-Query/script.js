@@ -23,6 +23,8 @@ function clearSections() {
   document.querySelectorAll('section').forEach((section) => {
     section.innerHTML = '';
     section.classList.remove('active');
+    section.classList.remove('hidden');
+    section.classList.add('hidden');
   });
 }
 
@@ -164,7 +166,8 @@ function loadPage(pageUrl) {
       
     });
    // Display Current Section
-      section.classList.remove('active');
+      section.classList.remove('hidden');
+      section.classList.add('active');
    //
   })
 .catch((error) => console.error(error));
