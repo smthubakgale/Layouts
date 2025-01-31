@@ -172,7 +172,11 @@ menuLinks.forEach(link => {
     window.location.href = '?' + targetSection + '.html';
   });
 });
-
+// Function to get the query parameter value
+function getQueryParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
 // Load the page dynamically based on the query parameter
 const page = getQueryParameter('page');
 if (page) {
