@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <!-- Other meta tags -->
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>UX1 Documentation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top-nav">
+    <nav>
+      <ul>
+        <li class="logo">
+          <a href="#">
+            <img src="logo.png" alt="UX1 Logo" />
+          </a>
+        </li>
+        <li class="home-link">
+          <a href="#home" class="nav-link">Home</a>
+        </li>
+        <li class="home-link2">
+          <a href="#home" class="nav-link"> UX1 </a>
+        </li>
+        <li class="pricing-link">
+          <a href="#pricing" class="nav-link">Pricing</a>
+        </li>
+        <li class="about-link">
+          <a href="#about" class="nav-link">About</a>
+        </li>
+        <li class="contact-link">
+          <a href="#contact" class="nav-link">Contact</a>
+        </li>
+        <li>
+          <button class="aside-toggle">Menu</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="flex-container">
+     <aside class="side-nav">
+  <nav class="docs-nav">
+    <ul>
+      
+      <li class="about-link2">
+          <a href="#about" class="nav-link">About</a>
+        </li>
+        <li class="contact-link2">
+          <a href="#contact" class="nav-link">Contact</a>
+        </li>
+      <li>
+        <input type="checkbox" id="menu-1">
+        <label for="menu-1">User Guide</label>
+        <ul>
+          <li><a href="#installation" class="nav-link" >Installation</a></li>
+          <li><a href="#upgrades" class="nav-link" >Upgrades</a></li>
+          <li><a href="#configuration" class="nav-link" >Configuration</a></li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" id="menu-2">
+        <label for="menu-2">Tutorials</label>
+        <ul>
+          <li><a href="#tutorial-1" class="nav-link" >Tutorial 1</a></li>
+          <li><a href="#tutorial-2" class="nav-link" >Tutorial 2</a></li>
+          <li><a href="#tutorial-3" class="nav-link" >Tutorial 3</a></li>
+        </ul>
+      </li>
+      <li><a href="#api-reference" class="nav-link">API Reference</a></li>
+    </ul>
+  </nav>
+</aside>
+      <div class="main-content">
+        <section id="home" class="section active">
+          <h1>Home</h1>
+          <p>Welcome to UX1 homepage.</p>
+        </section>
+        <section id="pricing" class="section hidden">
+          <h1>Pricing</h1>
+          <p>UX1 pricing plans.</p>
+          <ul>
+            <li>Plan 1: $9.99/month</li>
+            <li>Plan 2: $19.99/month</li>
+            <li>Plan 3: $29.99/month</li>
+          </ul>
+        </section>
+        <section id="about" class="section hidden">
+          <h1>About</h1>
+          <p>Welcome to our website! This is a brief overview of our project.</p>
+          <h2>Our Mission</h2>
+          <pOur mission is to provide a comprehensive resource for users.</p>
+          <h2>Our Team</h2>
+          <ul>
+            <li>
+              <h3>John Doe</h3>
+              <p>Founder and Lead Developer</p>
+            </li>
+            <li>
+              <h3>Jane Smith</h3>
+              <p>Designer and UX Specialist</p>
+            </li>
+          </ul>
+        </section>
+        <section id="contact" class="section hidden">
+          <h1>Contact Us</h1>
+          <p>Get in touch with us for more information or support.</p>
+          <ul>
+            <li>
+              <h3>Email</h3>
+              <p><a href="mailto:support@example.com">support@example.com</a></p>
+            </li>
+            <li>
+              <h3>Phone</h3>
+              <p><a href="tel:+1234567890">+1 234 567 890</a></p>
+            </li>
+            <li>
+              <h3>Address</h3>
+              <p>123 Main St, Anytown, USA 12345</p>
+            </li>
+          </ul>
+          <h2>Social Media</h2>
+          <ul>
+            <li>
+              <a href="https://twitter.com/example" target="_blank">Twitter</a>
+            </li>
+            <li>
+              <a href="https://facebook.com/example" target="_blank">Facebook</a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/company/example" target="_blank">LinkedIn</a>
+            </li>
+          </ul>
+          <h2>Contact Form</h2>
+          <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea><br><br>
+            <button type="submit">Send</button>
+          </form>
+        </section>
+        <section id="installation" class="section hidden">
+          <h1>Installation</h1>
+          <p>UX1 installation guide.</p>
+          <ol>
+            <li>Step 1: Download UX1</li>
+            <li>Step 2: Install UX1</li>
+            <li>Step 3: Configure UX1</li>
+          </ol>
+        </section>
+        <section id="upgrades" class="section hidden">
+          <h1>Upgrades</h1>
+          <p>UX1 upgrades guide.</p>
+          <ol>
+            <li>Step 1: Check for updates</li>
+            <li>Step 2: Download update</li>
+            <li>Step 3: Install update</li>
+          </ol>
+        </section>
+        <section id="configuration" class="section hidden">
+          <h1>Configuration</h1>
+          <p>UX1 configuration guide.</p>
+          <ol>
+            <li>Step 1: Set up settings</li>
+            <li>Step 2: Configure options</li>
+            <li>Step 3: Save changes</li>
+          </ol>
+        </section>
+        <section id="tutorial-1" class="section hidden">
+          <h1>Tutorial 1</h1>
+          <p>UX1 tutorial 1.</p>
+          <ol>
+            <li>Step 1: Introduction</li>
+            <li>Step 2: Setup</li>
+            <li>Step 3: Deployment</li>
+          </ol>
+        </section>
+        <section id="tutorial-2" class="section hidden">
+          <h1>Tutorial 2</h1>
+          <p>UX1 tutorial 2.</p>
+          <ol>
+            <li>Step 1: Advanced topics</li>
+            <li>Step 2: Best practices</li>
+            <li>Step 3: Troubleshooting</li>
+          </ol>
+        </section>
+        <section id="tutorial-3" class="section hidden">
+          <h1>Tutorial 3</h1>
+          <p>UX1 tutorial 3.</p>
+          <ol>
+            <li>Step 1: Expert techniques</li>
+            <li>Step 2: Optimization</li>
+            <li>Step 3: Security</li>
+          </ol>
+        </section>
+        <section id="api-reference" class="section hidden">
+          <h1>API Reference</h1>
+          <p>UX1 API reference guide.</p>
+          <ul>
+            <li>API endpoints</li>
+            <li>Request/response formats</li>
+            <li>Error handling</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
