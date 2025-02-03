@@ -1,5 +1,4 @@
 /* Global Styles */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -60,69 +59,13 @@ body {
   margin-top:-5px; 
   margin-bottom:-8px;
 }
-/* Side Navigation */
-.aside-toggle {
-    display: none;
-  }
-.side-nav {
-  flex-basis: 250px;
-  flex-shrink: 0;
-  background-color: #f9f9f9;
-  padding: 1em;
-  overflow-y: auto;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-}
 
-.side-nav .contact-link2 , .side-nav .about-link2{
-  display:none;
-}
-
-.side-nav .docs-nav {
-  padding: 0;
-}
-
-.side-nav .docs-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.side-nav .docs-nav li {
-  margin-bottom: 10px;
-}
-
-.side-nav .docs-nav a {
-  color: #333;
-  text-decoration: none;
-}
-
-.side-nav .docs-nav a:hover {
-  color: #ffa07a;
-}
-
-.side-nav .docs-nav input[type="checkbox"] {
-  display: none;
-}
-
-.side-nav .docs-nav input[type="checkbox"]:checked + label + ul {
-  display: block;
-}
-
-.side-nav .docs-nav label {
-  cursor: pointer;
-}
-
-.side-nav .docs-nav label:hover {
-  font-weight:bold;
-}
-
-.side-nav .docs-nav ul ul {
-  display: none;
-  padding-left: 20px;
-}
-
-.side-nav .docs-nav ul ul li {
-  margin-bottom: 5px;
+/**/
+.bottom-menu{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  right:0px;
 }
 /* Main Content */
 
