@@ -49,10 +49,7 @@ body {
 
 .top-nav .about-link{
   margin-left: auto;
-}
-.top-nav .home-link2{
-  display:none;
-}
+} 
 .top-nav .logo img{
   width:25px; 
   height:25px; 
@@ -223,10 +220,7 @@ body {
   .top-nav .about-link , 
   .top-nav .contact-link{
     display:none;
-  }
-  .top-nav .home-link2{
-    display:block;
-  }
+  } 
   .aside-toggle {
     display: block;
   }  
