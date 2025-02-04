@@ -70,7 +70,7 @@ body {
 }
 
 .top-nav .dropdown-menu {
-  background-color: #333;
+  background-color: #FF6F3C;
   border: none;
   display: none;
   padding: 10px;
@@ -86,11 +86,11 @@ body {
 }
 
 .top-nav .dropdown-menu a {
-  color: #fff;
+  color: #F7F7F7;
 }
 
 .top-nav .dropdown-menu a:hover {
-  color: #ccc;
+  color: #F7F7F7; /* no change */
 }
 
 .top-nav .dropdown:hover .dropdown-menu {
