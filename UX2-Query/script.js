@@ -210,9 +210,9 @@ function handleNavLinkClick(event) {
 
 function handleSubNavTrigger(event) {
 const subNav = event.target.querySelector('.sub-nav');
-if (event.type === 'mouseover' && subNav.style) {
+if (event.type === 'mouseover' && subNav) {
 subNav.style.display = 'block';
-} else if(subNav.style) {
+} else if(subNav) {
 subNav.style.display = 'none';
 }
 }
