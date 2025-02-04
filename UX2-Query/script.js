@@ -1,3 +1,14 @@
+// Add event listener to dropdown toggle
+document.addEventListener("DOMContentLoaded", function() {
+  const dropdownToggle = document.querySelector(".dropdown-toggle");
+
+  dropdownToggle.addEventListener("click", function(event) {
+    event.preventDefault();
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+    dropdownMenu.classList.toggle("show");
+  });
+});
+
 // Get elements
 const topNav = document.querySelector('.top-nav');
 const sideNav = document.querySelector('.side-nav');
