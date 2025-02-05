@@ -1,0 +1,28 @@
+#logout {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#logout .container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#logout button {
+    width: 150px;
+    height: 40px;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logout button:hover {
+    background-color: #3e8e41;
+}
