@@ -1,8 +1,4 @@
-var home = {
-  myFunction: () => {
-    console.log("Welcome to Home!");
-  },
-  
+var register = { 
   init: () => {
     const form = document.getElementById('register-form');
 
@@ -29,4 +25,5 @@ var home = {
 };
 
 // Initialize the page
-home.init();
+register.init();
+
