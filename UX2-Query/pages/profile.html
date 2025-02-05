@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+            <h2 id="username">John Doe</h2>
+        </div>
+        <div class="profile-info">
+            <h3>Account Information</h3>
+            <p id="username-display">John Doe</p>
+            <p id="email-display">johndoe@example.com</p>
+            <p id="phone-display">123-456-7890</p>
+            <form id="edit-profile-form" class="hidden">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username-input" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email-input" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone-input" name="phone" required>
+                </div>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+        <div class="profile-actions">
+            <button id="edit-profile-btn">Edit Profile</button>
+            <button id="change-password-btn">Change Password</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
