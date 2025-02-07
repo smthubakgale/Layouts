@@ -29,8 +29,7 @@ function observeLinkTags(className = '', eventType = 'click', callback = () => {
   // Function to check if a node or its children/sub-children contain a specific class
   function checkForClass(node, className) {
     // Check if the node itself contains the specific class
-    if (node.classList && node.classList.contains(className)) {
-      console.log(`Node contains class ${className}`);
+    if (node.classList && node.classList.contains(className)) { 
       // Add the callback event listener to the new element
       node.addEventListener(eventType, callback);
     }
@@ -53,13 +52,13 @@ function observeLinkTags(className = '', eventType = 'click', callback = () => {
 navLinks.forEach(link => link.addEventListener('click', handleNavLinkClick));
 observeLinkTags('nav-link', 'click', handleNavLinkClick);
 subNavTriggers.forEach(trigger => trigger.addEventListener('mouseover', handleSubNavTrigger));
-observeLinkTags('.dropdown','mouseover', handleSubNavTrigger);
+observeLinkTags('dropdown','mouseover', handleSubNavTrigger);
 subNavTriggers.forEach(trigger => trigger.addEventListener('mouseout', handleSubNavTrigger)); 
-observeLinkTags('.dropdown', 'mouseout', handleSubNavTrigger);
+observeLinkTags('dropdown', 'mouseout', handleSubNavTrigger);
 accordionTriggers.forEach(trigger => trigger.addEventListener('click', handleAccordionTrigger));
-observeLinkTags('.accordion', 'click', handleAccordionTrigger);
+observeLinkTags('accordion', 'click', handleAccordionTrigger);
 alertCloseButtons.forEach(button => button.addEventListener('click', handleAlertClose));
-observeLinkTags('.close-button', 'click', handleAlertClose);
+observeLinkTags('close-button', 'click', handleAlertClose);
 
 function clearSections() {
   document.querySelectorAll('section').forEach((section) => {
