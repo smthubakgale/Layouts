@@ -310,12 +310,6 @@ window.addEventListener('resize', () => {
   } 
 });
 
-document.addEventListener('click', (event) => { 
-  if (!docsNav.contains(event.target) && sideNav.contains(event.target)) { 
-    sideNav.classList.remove('mob-nav');
-  }
-});
-
 // Check if mobile device
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
