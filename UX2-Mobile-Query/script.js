@@ -265,11 +265,24 @@ function getQueryParameter(name) {
 }
 // Load the page dynamically based on the query parameter
 const page = getQueryParameter('page');
+const fill = getQueryParameter('fill');
+
 if (page) {
     loadPage(page + '.html');
 } else {
     // Load the default page if no query parameter is provided
     loadPage('home');
+}
+
+if(fill == "top"){
+   document.querySelector('header').style.display = 'none';
+}
+else if(fill == "bottom"){
+  document.querySelector('footer').style.display = 'none';
+}
+else if(fill == "screen"){
+   document.querySelector('header').style.display = 'none';
+   document.querySelector('footer').style.display = 'none';
 }
 
 function handleNavLinkClick(event) {
@@ -283,7 +296,10 @@ function handleNavLinkClick(event) {
   }
   
   const targetSection = target.getAttribute('href').substring(1); 
-  window.location.href = '?page=' + targetSection ;
+  var fill = target.getAttribute('fill');
+  fill = fill || 'none';
+  
+  window.location.href = '?page=' + targetSection + '&fill=' + fill ;
 }
 
 function handleSubNavTrigger(event) {
