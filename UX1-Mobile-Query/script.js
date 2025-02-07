@@ -9,8 +9,7 @@ const subNavTriggers = document.querySelectorAll('.dropdown');
 const subNavs = document.querySelectorAll('.sub-nav');
 const modals = document.querySelectorAll('.modal');
 const accordionTriggers = document.querySelectorAll('.accordion');
-const alertCloseButtons = document.querySelectorAll('.alert .close-button');
-const asideToggle = document.querySelector('.aside-toggle'); 
+const alertCloseButtons = document.querySelectorAll('.alert .close-button'); 
 
 // Add event listeners
 navLinks.forEach(link => link.addEventListener('click', handleNavLinkClick));
@@ -282,15 +281,6 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
    
   } 
-});
-
-asideToggle.addEventListener('click', () => { 
-   if(sideNav.classList.contains('mob-nav')){
-      sideNav.classList.remove('mob-nav');
-   }
-   else{
-      sideNav.classList.add('mob-nav');
-   }
 });
 
 document.addEventListener('click', (event) => { 
