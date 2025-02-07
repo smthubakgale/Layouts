@@ -19,8 +19,6 @@ function observeLinkTags(className = '', eventType = 'click', callback = () => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach((node) => {
-          console.log(node);
-  
           // Check if the added node or its children/sub-children contain the specific class
           checkForClass(node, className);
         });
@@ -33,12 +31,15 @@ function observeLinkTags(className = '', eventType = 'click', callback = () => {
     // Check if the node itself contains the specific class
     if (node.classList && node.classList.contains(className)) {
       console.log(`Node contains class ${className}`);
+      console.log(node.matches(".nav=link"));
     }
   
     // Recursively check the children and sub-children of the node
-    Array.from(node.children).forEach((child) => {
-      checkForClass(child, className);
-    });
+    if(node.children && Array.isArray(node.children){
+      Array.from(node.children).forEach((child) => {
+        checkForClass(child, className);
+      }); 
+    }
   }
   
   // Configure the observer to watch for childList changes
