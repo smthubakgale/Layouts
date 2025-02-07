@@ -127,9 +127,15 @@ function loadPage(pageUrl) {
         if(href){
           fetch(href)
           .then(response => response.text())
-          .then(css =>
+          .then(htm =>
           {
+              css = css.replace('body' , '#' + sectonId);
+    
+              console.log(css); 
+            
               const modifiedCss = addSectionId(css.trim(), sectionId);
+
+              console.log(modifiedCss);
               const newStyle = document.createElement('style');
               newStyle.textContent = modifiedCss;
               section.appendChild(newStyle);
@@ -165,8 +171,6 @@ function loadPage(pageUrl) {
       else if(src)
       { 
           src = src.replace('../', ''); 
-
-          console.log(src);
 
           fetch(src)
           .then(response => {
