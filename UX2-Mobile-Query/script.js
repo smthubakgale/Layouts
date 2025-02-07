@@ -274,6 +274,8 @@ if (page) {
 
 function handleNavLinkClick(event) {
   event.preventDefault();
+
+  console.log(event.target);
   
   const targetSection = event.target.getAttribute('href').substring(1); 
   window.location.href = '?page=' + targetSection ;
