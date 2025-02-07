@@ -45,6 +45,16 @@ function addProfileSelector(cssCode, sectionId) {
     if (selectors) {
         selectors.forEach(selector => {
             console.log(selector);
+
+            var mat = selector.split('}');
+      
+            console.log(mat.length);
+            var a = (mat.length == 2) ? mat[0] : '';
+            var b = (mat.length == 2) ? mat[1] : mat[0];
+      
+      
+            console.log(a);
+            console.log(b);
           
             const newSelector = `#${sectionId} ${selector.trim()}`;
             cssCode = cssCode.replace(selector, newSelector);
@@ -59,18 +69,7 @@ function addSectionId(css, sectionId) {
 
   rules.forEach(function(rule) {
     var selectorMatch = rule.match(/([^{]+)/);
-    if (selectorMatch) {
-      console.log(selectorMatch.toString());
-
-      var mat = (selectorMatch.toString() + "").split('}');
-
-      console.log(mat.length);
-      var a = (mat.length == 2) ? mat[0] : '';
-      var b = (mat.length == 2) ? mat[1] : mat[0];
-
-
-      console.log(a);
-      console.log(b);
+    if (selectorMatch) { 
       
       var selector = selectorMatch[1].trim();
       var modifiedSelector = `
