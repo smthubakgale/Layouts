@@ -97,7 +97,13 @@ function loadPage(pageUrl) {
   clearSections();
 
   fetch('pages/' + pageUrl)
-.then((response) => response.text())
+  .then(response => {
+    if (response.ok) {
+      return response.text();
+    } else {
+      throw new Error(`Error: ${response.status}`);
+    }
+  })
 .then((html) => {   
     // Select all section elements
        const sections = document.querySelectorAll('section'); 
@@ -151,7 +157,13 @@ function loadPage(pageUrl) {
         const href = link.getAttribute('href').replace('../', '');
         if(href){
           fetch(href)
-          .then(response => response.text())
+          .then(response => {
+            if (response.ok) {
+              return response.text();
+            } else {
+              throw new Error(`Error: ${response.status}`);
+            }
+          })
           .then(htm =>
           {
               let css = htm; 
