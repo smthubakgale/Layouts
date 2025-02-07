@@ -55,12 +55,14 @@ function addSectionId(cssCode, sectionId) {
             var c = b.split('\n');
             var d = '';
 
+            console.log(b);
+
             c.forEach((s)=>
               {
                   if(s.length == 0){
                     d += '\n';
                   }
-                  else if(s.indexOf('body') == -1) 
+                  else if(s.indexOf('body') == -1 && s.indexOf('/*') == -1) 
                   {
                     var e = s.split(',');
                     
