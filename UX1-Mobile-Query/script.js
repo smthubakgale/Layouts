@@ -12,20 +12,26 @@ const accordionTriggers = document.querySelectorAll('.accordion');
 const alertCloseButtons = document.querySelectorAll('.alert .close-button'); 
 
 // Add event listeners
-function observeLinkTags(className = '', eventType = 'click', callback = () => {}) {
+function observeLinkTags(selector = '', eventType = 'click', callback = () => {}) {
   // Create a MutationObserver
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach((node) => {
-          console.log(node);
-          console.log(node.classList);
-          console.log(node.nodeType);
-          
-          if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains(className)) {
-            console.log('New element with class added:', node);
-            // Add the callback event listener to the new element
-            node.addEventListener(eventType, callback);
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            // Check if the added node matches the selector
+            if (node.matches(selector)) {
+              // Add the callback event listener to the new element
+              node.addEventListener(eventType, callback);
+            }
+
+            // Recursively check child nodes
+            Array.from(node.children).forEach((child) => {
+              if (child.matches(selector)) {
+                // Add the callback event listener to the new element
+                child.addEventListener(eventType, callback);
+              }
+            });
           }
         });
       }
@@ -40,15 +46,15 @@ function observeLinkTags(className = '', eventType = 'click', callback = () => {
 }
 
 navLinks.forEach(link => link.addEventListener('click', handleNavLinkClick));
-observeLinkTags('nav-link', 'click', handleNavLinkClick);
+observeLinkTags('.nav-link', 'click', handleNavLinkClick);
 subNavTriggers.forEach(trigger => trigger.addEventListener('mouseover', handleSubNavTrigger));
-observeLinkTags('dropdown','mouseover', handleSubNavTrigger);
+observeLinkTags('.dropdown','mouseover', handleSubNavTrigger);
 subNavTriggers.forEach(trigger => trigger.addEventListener('mouseout', handleSubNavTrigger)); 
-observeLinkTags('dropdown', 'mouseout', handleSubNavTrigger);
+observeLinkTags('.dropdown', 'mouseout', handleSubNavTrigger);
 accordionTriggers.forEach(trigger => trigger.addEventListener('click', handleAccordionTrigger));
-observeLinkTags('accordion', 'click', handleAccordionTrigger);
+observeLinkTags('.accordion', 'click', handleAccordionTrigger);
 alertCloseButtons.forEach(button => button.addEventListener('click', handleAlertClose));
-observeLinkTags('close-button', 'click', handleAlertClose);
+observeLinkTags('.close-button', 'click', handleAlertClose);
 
 function clearSections() {
   document.querySelectorAll('section').forEach((section) => {
