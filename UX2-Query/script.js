@@ -40,6 +40,9 @@ function clearSections() {
 }
 
 function addProfileSelector(cssCode, sectionId) {
+
+    console.log(cssCode.replace(/([^{]+)\s*\{/g, '#profile $1 {'));
+  
     const selectors = cssCode.match(/([^{]+)\s*\{/g);
     if (selectors) {
         selectors.forEach(selector => {
