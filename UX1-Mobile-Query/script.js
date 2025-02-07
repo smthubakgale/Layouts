@@ -35,7 +35,7 @@ function observeLinkTags(className = '', eventType = 'click', callback = () => {
     }
   
     // Recursively check the children and sub-children of the node
-    if(node.children && Array.isArray(node.children)){
+    if(node.children){
       Array.from(node.children).forEach((child) => {
         checkForClass(child, className);
       }); 
