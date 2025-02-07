@@ -60,6 +60,7 @@ function addSectionId(css, sectionId) {
   rules.forEach(function(rule) {
     var selectorMatch = rule.match(/([^{]+)/);
     if (selectorMatch) {
+      console.log(selectorMatch);
       var selector = selectorMatch[1].trim();
       var modifiedSelector = `
 `     + `#${sectionId} `;
