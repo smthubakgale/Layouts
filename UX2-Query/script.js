@@ -60,8 +60,18 @@ function addProfileSelector(cssCode, sectionId) {
                   if(s.length == 0){
                     d += '\n';
                   }
-                  else if(s.indexOf('body') == -1) {
-                    d += `#${sectionId} ` + s;
+                  else if(s.indexOf('body') == -1) 
+                  {
+                    var e = s.split(',');
+                    
+                    e.forEach((s2 , k2)=>
+                    { 
+                       d += `#${sectionId} ` + s2;
+
+                       if (e.length > 1 && k2 != e.length - 1) {
+                          d += ',';
+                       }
+                    })
                   }
                   else{
                     d += s;
