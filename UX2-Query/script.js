@@ -111,7 +111,7 @@ function loadPage(pageUrl) {
          let css = htm;
          css = css.replace('body' , '#' + sectonId);
 
-         console.log(css);
+         console.log(css); 
          
          const modifiedCss = addSectionId(css.trim(), sectionId);
 
