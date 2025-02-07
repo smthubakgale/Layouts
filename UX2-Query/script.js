@@ -52,8 +52,7 @@ function addProfileSelector(cssCode, sectionId) {
             var a = (mat.length == 2) ? mat[0] : '';
             var b = (mat.length == 2) ? mat[1] : mat[0];
 
-            a += '\n }';
-      
+            if(mat.length == 2){ a += '\n }'; }
       
             console.log(a);
             console.log(b);
@@ -66,8 +65,11 @@ function addProfileSelector(cssCode, sectionId) {
                   if(s.length == 0){
                     d += '\n';
                   }
-                  else {
+                  else if(s.indexOf('body') == -1) {
                     d += `#${sectionId} ` + s;
+                  }
+                  else{
+                    d += s;
                   }
               });
 
@@ -150,8 +152,7 @@ function loadPage(pageUrl) {
     styles.forEach(style =>{
        const htm = style.innerHTML; 
        if(htm){
-         let css = htm;
-         css = css.replace('body' , '#' + sectonId);
+         let css = htm; 
 
          console.log(css); 
          
@@ -171,8 +172,7 @@ function loadPage(pageUrl) {
           .then(response => response.text())
           .then(htm =>
           {
-              let css = htm;
-              css = css.replace('body' , '#' + sectionId);
+              let css = htm; 
     
               console.log(css); 
             
