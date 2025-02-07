@@ -31,7 +31,8 @@ function observeLinkTags(className = '', eventType = 'click', callback = () => {
     // Check if the node itself contains the specific class
     if (node.classList && node.classList.contains(className)) {
       console.log(`Node contains class ${className}`);
-      console.log(node.matches(".nav=link"));
+      // Add the callback event listener to the new element
+      node.addEventListener(eventType, callback);
     }
   
     // Recursively check the children and sub-children of the node
