@@ -44,19 +44,14 @@ function addProfileSelector(cssCode, sectionId) {
     const selectors = cssCode.match(/([^{]+)\s*\{/g);
     if (selectors) {
         selectors.forEach(selector => {
-            console.log(selector);
 
             var mat = selector.split('}');
       
-            console.log(mat.length);
             var a = (mat.length == 2) ? mat[0] : '';
             var b = (mat.length == 2) ? mat[1] : mat[0];
 
             if(mat.length == 2){ a += '\n }'; }
       
-            console.log(a);
-            console.log(b);
-
             var c = b.split('\n');
             var d = '';
 
@@ -73,9 +68,7 @@ function addProfileSelector(cssCode, sectionId) {
                   }
               });
 
-            console.log(d);
-          
-            const newSelector = a + d;
+            const newSelector = (a + d).replace('body', `#${sectionId}`);
             cssCode = cssCode.replace(selector, newSelector);
         });
     }
