@@ -85,8 +85,14 @@ function addSectionIdToJs(jsCode, sectionId) {
 function loadPage(pageUrl) { 
   clearSections();
 
-  fetch('pages/' + pageUrl)
-.then((response) => response.text())
+  fetch('pages/' + pageUrl) 
+  .then(response => {
+    if (response.ok) {
+      return response.text();
+    } else {
+      throw new Error(`Error: ${response.status}`);
+    }
+  })
 .then((html) => {   
     // Select all section elements
        const sections = document.querySelectorAll('section'); 
@@ -137,8 +143,14 @@ function loadPage(pageUrl) {
       if (link.getAttribute('rel') === 'stylesheet' && link.getAttribute('href').endsWith('.css')) {
         const href = link.getAttribute('href').replace('../', '');
         if(href){
-          fetch(href)
-          .then(response => response.text())
+          fetch(href) 
+          .then(response => {
+            if (response.ok) {
+              return response.text();
+            } else {
+              throw new Error(`Error: ${response.status}`);
+            }
+          })
           .then(css =>
           {
               const modifiedCss = addSectionId(css.trim(), sectionId);
