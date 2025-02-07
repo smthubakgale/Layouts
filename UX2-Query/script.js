@@ -62,7 +62,7 @@ function addSectionId(css, sectionId) {
     if (selectorMatch) {
       console.log(selectorMatch);
 
-      var mat = selectorMatch.split('{');
+      var mat = (selectorMatch + "").split('{');
       var a = (mat.length == 2) ? mat[0] : '';
       var b = (mat.length == 2) ? mat[1] : mat[0];
 
