@@ -14,7 +14,7 @@ const alertCloseButtons = document.querySelectorAll('.alert .close-button');
 const asideToggle = document.querySelector('.aside-toggle'); 
 
 // Add event listeners
-function observeLinkTags(className = '' = '', eventType = 'click', callback = () => {}) {
+function observeLinkTags(className = '', eventType = 'click', callback = () => {}) {
   // Create a MutationObserver
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
