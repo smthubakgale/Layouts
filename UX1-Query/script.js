@@ -21,6 +21,7 @@ function observeLinkTags(className = '', eventType = 'click', callback = () => {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach((node) => {
           if (node.classList.contains(className)) {
+            console.log('New element with class added:', node);
             // Add the callback event listener to the new element
             node.addEventListener(eventType, callback);
           }
