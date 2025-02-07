@@ -18,16 +18,30 @@ function observeLinkTags(selector = '', eventType = 'click', callback = () => {}
     mutations.forEach((mutation) => {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach((node) => {
-          console.log(node);
-          
-          if (node.matches(selector)) {
-            // Add the callback event listener to the new element
-            node.addEventListener(eventType, callback);
+          if (node.matches) {
+            if (node.matches(selector)) {
+              // Add the callback event listener to the new element
+              node.addEventListener(eventType, callback);
+            }
+          } else {
+            // Fallback for older browsers
+            const matches = (node) => node.webkitMatchesSelector(selector) || node.mozMatchesSelector(selector) || node.msMatchesSelector(selector) || node.oMatchesSelector(selector);
+            if (matches(node)) {
+              // Add the callback event listener to the new element
+              node.addEventListener(eventType, callback);
+            }
           }
         });
       }
     });
   });
+
+  // Observe the document body for changes
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+}
 
   // Observe the document body for changes
   observer.observe(document.body, {
