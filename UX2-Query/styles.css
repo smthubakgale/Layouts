@@ -167,6 +167,7 @@ body {
   flex-grow: 1;
   margin-left: 20px;
   padding: 1em;
+  padding-top: 0px;
 }
 
 /* Sections */
