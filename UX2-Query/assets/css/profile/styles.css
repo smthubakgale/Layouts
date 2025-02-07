@@ -35,8 +35,7 @@ body {
 }
 
 button {
-    width: 150px;
-    height: 40px;
+    width: 150px; 
     background-color: #4CAF50;
     color: #fff;
     padding: 10px;
