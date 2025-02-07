@@ -274,8 +274,15 @@ if (page) {
 
 function handleNavLinkClick(event) {
   event.preventDefault();
+
+  let target = event.target;
   
-  const targetSection = event.target.getAttribute('href').substring(1); 
+  // If the target is an <i> element, get its parent
+  if (target.tagName === 'I') {
+    target = target.parentNode;
+  }
+  
+  const targetSection = target.getAttribute('href').substring(1); 
   window.location.href = '?page=' + targetSection ;
 }
 
