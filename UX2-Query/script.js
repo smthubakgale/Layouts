@@ -141,7 +141,7 @@ function loadPage(pageUrl) {
           .then(htm =>
           {
               let css = htm;
-              css = css.replace('body' , '#' + sectonId);
+              css = css.replace('body' , '#' + sectionId);
     
               console.log(css); 
             
