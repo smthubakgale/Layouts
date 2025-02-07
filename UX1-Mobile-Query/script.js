@@ -12,7 +12,7 @@ const accordionTriggers = document.querySelectorAll('.accordion');
 const alertCloseButtons = document.querySelectorAll('.alert .close-button'); 
 
 // Add event listeners
-function observeLinkTags(className = '' = '', eventType = 'click', callback = () => {}) {
+function observeLinkTags(className = '' , eventType = 'click', callback = () => {}) {
   // Create a MutationObserver
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
