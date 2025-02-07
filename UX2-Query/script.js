@@ -41,8 +41,6 @@ function clearSections() {
 
 function addSectionId(cssCode, sectionId) {
 
-    console.log(cssCode);
-
     const selectors = cssCode.match(/([^{]+)\s*\{/g);
     if (selectors) {
         selectors.forEach(selector => {
@@ -56,8 +54,6 @@ function addSectionId(cssCode, sectionId) {
       
             var c = b.split('\n');
             var d = '';
-
-            console.log(b);
 
             c.forEach((s)=>
               {
