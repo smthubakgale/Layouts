@@ -21,6 +21,8 @@ function observeLinkTags(selector = '', eventType = 'click', callback = () => {}
           
           if (node.nodeType === Node.ELEMENT_NODE) {
             console.log(node);
+            console.log(node.classList);
+            console.log(selector);
             // Check if the added node matches the selector
             if (node.matches(selector)) {
               // Add the callback event listener to the new element
@@ -29,6 +31,7 @@ function observeLinkTags(selector = '', eventType = 'click', callback = () => {}
 
             // Recursively check child nodes
             Array.from(node.children).forEach((child) => {
+              console.log(child.classList);
               if (child.matches(selector)) {
                 // Add the callback event listener to the new element
                 child.addEventListener(eventType, callback);
