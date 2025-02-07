@@ -16,7 +16,7 @@ function observeLinkTags(selector = '', eventType = 'click', callback = () => {}
   // Create a MutationObserver
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.type === 'childList') {
+      if (true) {
         mutation.addedNodes.forEach((node) => {
           
           if (node.nodeType === Node.ELEMENT_NODE) {
