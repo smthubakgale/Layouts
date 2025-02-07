@@ -43,7 +43,7 @@ function addProfileSelector(cssCode, sectionId) {
     const selectors = cssCode.match(/([^{]+)\s*\{/g);
     if (selectors) {
         selectors.forEach(selector => {
-            const newSelector = `#{sectionId} ${selector.trim()}`;
+            const newSelector = `#${sectionId} ${selector.trim()}`;
             cssCode = cssCode.replace(selector, newSelector);
         });
     }
