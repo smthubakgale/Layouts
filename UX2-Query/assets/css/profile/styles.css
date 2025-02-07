@@ -36,7 +36,7 @@ body {
 
 button {
     width: 150px; 
-    background-color: #4CAF50;
+    /*background-color: #4CAF50;*/
     color: #fff;
     padding: 10px;
     border: none;
@@ -44,9 +44,11 @@ button {
     cursor: pointer;
 }
 
+/*
 button:hover {
     background-color: #3e8e41;
 }
+*/
 
 .input-group {
     margin-bottom: 20px;
