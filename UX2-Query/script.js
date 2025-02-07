@@ -39,52 +39,6 @@ function clearSections() {
   });
 }
 
-function addProfileSelector(cssCode, sectionId) {
-
-    const selectors = cssCode.match(/([^{]+)\s*\{/g);
-    if (selectors) {
-        selectors.forEach(selector => {
-
-            var mat = selector.split('}');
-      
-            var a = (mat.length == 2) ? mat[0] : '';
-            var b = (mat.length == 2) ? mat[1] : mat[0];
-
-            if(mat.length == 2){ a += '\n }'; }
-      
-            var c = b.split('\n');
-            var d = '';
-
-            c.forEach((s)=>
-              {
-                  if(s.length == 0){
-                    d += '\n';
-                  }
-                  else if(s.indexOf('body') == -1) 
-                  {
-                    var e = s.split(',');
-                    
-                    e.forEach((s2 , k2)=>
-                    { 
-                       d += `#${sectionId} ` + s2;
-
-                       if (e.length > 1 && k2 != e.length - 1) {
-                          d += ',';
-                       }
-                    })
-                  }
-                  else{
-                    d += s;
-                  }
-              });
-
-            const newSelector = (a + d).replace('body', `#${sectionId}`);
-            cssCode = cssCode.replace(selector, newSelector);
-        });
-    }
-    return cssCode;
-}
-
 function addSectionId(cssCode, sectionId) {
 
     const selectors = cssCode.match(/([^{]+)\s*\{/g);
@@ -185,11 +139,8 @@ function loadPage(pageUrl) {
        if(htm){
          let css = htm; 
 
-         console.log(css); 
-         
          const modifiedCss = addSectionId(css.trim(), sectionId);
 
-         console.log(modifiedCss);
          const newStyle = document.createElement('style');
          newStyle.textContent = modifiedCss;
          section.appendChild(newStyle);
@@ -205,13 +156,8 @@ function loadPage(pageUrl) {
           {
               let css = htm; 
     
-              console.log(css); 
-            
               const modifiedCss = addSectionId(css.trim(), sectionId);
 
-              console.log(modifiedCss);
-              console.log(addProfileSelector(css.trim(), sectionId));
-            
               const newStyle = document.createElement('style');
               newStyle.textContent = modifiedCss;
               section.appendChild(newStyle);
