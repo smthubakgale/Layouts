@@ -108,8 +108,14 @@ function loadPage(pageUrl) {
     styles.forEach(style =>{
        const htm = style.innerHTML; 
        if(htm){
-         const css = htm;
+         let css = htm;
+         css = css.replace('body' , '#' + sectonId);
+
+         console.log(css);
+         
          const modifiedCss = addSectionId(css.trim(), sectionId);
+
+         console.log(modifiedCss);
          const newStyle = document.createElement('style');
          newStyle.textContent = modifiedCss;
          section.appendChild(newStyle);
