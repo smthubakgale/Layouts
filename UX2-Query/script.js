@@ -160,6 +160,8 @@ function loadPage(pageUrl) {
       { 
           src = src.replace('../', ''); 
 
+          console.log(src);
+
           fetch(src)
           .then(response => {
             if (response.ok) {
