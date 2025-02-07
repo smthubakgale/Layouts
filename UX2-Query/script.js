@@ -51,10 +51,27 @@ function addProfileSelector(cssCode, sectionId) {
             console.log(mat.length);
             var a = (mat.length == 2) ? mat[0] : '';
             var b = (mat.length == 2) ? mat[1] : mat[0];
+
+            a += '\n }';
       
       
             console.log(a);
             console.log(b);
+
+            var c = b.split('\n');
+            var d = '';
+
+            c.forEach((s)=>
+              {
+                  if(s.length == 0){
+                    d += '\n';
+                  }
+                  else {
+                    d += `#${sectionId}` + s;
+                  }
+              });
+
+            console.log(d);
           
             const newSelector = `#${sectionId} ${selector.trim()}`;
             cssCode = cssCode.replace(selector, newSelector);
