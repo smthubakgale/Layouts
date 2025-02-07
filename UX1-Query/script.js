@@ -28,22 +28,51 @@ function clearSections() {
   });
 }
 
-function addSectionId(css, sectionId) {
-  var rules = css.split('}');
-  var modifiedRules = [] ;
+function addSectionId(cssCode, sectionId) {
 
-  rules.forEach(function(rule) {
-    var selectorMatch = rule.match(/([^{]+)/);
-    if (selectorMatch) {
-      var selector = selectorMatch[1].trim();
-      var modifiedSelector = `
-`     + `#${sectionId} `;
+    const selectors = cssCode.match(/([^{]+)\s*\{/g);
+    if (selectors) {
+        selectors.forEach(selector => {
 
-      modifiedRules.push(modifiedSelector + rule.substring(selector.length) + '}');
+            var mat = selector.split('}');
+      
+            var a = (mat.length == 2) ? mat[0] : '';
+            var b = (mat.length == 2) ? mat[1] : mat[0];
+
+            if(mat.length == 2){ a += '\n }'; }
+      
+            var c = b.split('\n');
+            var d = '';
+
+            c.forEach((s)=>
+              {
+                  if(s.length == 0){
+                    d += '\n';
+                  }
+                  else if(s.indexOf('body') == -1 && s.indexOf('/*') == -1) 
+                  {
+                    var e = s.split(',');
+                    
+                    e.forEach((s2 , k2)=>
+                    { 
+                       d += `#${sectionId} ` + s2;
+
+                       if (e.length > 1 && k2 != e.length - 1) {
+                          d += ',';
+                       }
+                    })
+                  }
+                  else{
+                    d += s;
+                  }
+              });
+
+            const newSelector = (a + d).replace('body', `#${sectionId}`);
+            cssCode = cssCode.replace(selector, newSelector);
+        });
     }
-  });
-
-  return modifiedRules.join('').replace('body' , '');
+  
+    return cssCode;
 }
 function addSectionIdToJs(jsCode, sectionId) {
   // Use regular expressions to find and modify query selectors
