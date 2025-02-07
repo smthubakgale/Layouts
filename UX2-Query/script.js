@@ -39,6 +39,17 @@ function clearSections() {
   });
 }
 
+function addProfileSelector(cssCode, sectionId) {
+    const selectors = cssCode.match(/([^{]+)\s*\{/g);
+    if (selectors) {
+        selectors.forEach(selector => {
+            const newSelector = `#{sectionId} ${selector.trim()}`;
+            cssCode = cssCode.replace(selector, newSelector);
+        });
+    }
+    return cssCode;
+}
+
 function addSectionId(css, sectionId) {
   var rules = css.split('}');
   var modifiedRules = [] ;
@@ -129,6 +140,7 @@ function loadPage(pageUrl) {
           .then(response => response.text())
           .then(htm =>
           {
+              let css = htm;
               css = css.replace('body' , '#' + sectonId);
     
               console.log(css); 
@@ -136,6 +148,8 @@ function loadPage(pageUrl) {
               const modifiedCss = addSectionId(css.trim(), sectionId);
 
               console.log(modifiedCss);
+              console.log(addProfileSelector(css.trim(), sectionId));
+            
               const newStyle = document.createElement('style');
               newStyle.textContent = modifiedCss;
               section.appendChild(newStyle);
