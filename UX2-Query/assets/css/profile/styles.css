@@ -1,9 +1,9 @@
-#profile {
+body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
 }
 
-#profile .container {
+.container {
     width: 500px;
     margin: 50px auto;
     padding: 20px;
@@ -12,29 +12,29 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-#profile .profile-header {
+.profile-header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-#profile .profile-picture {
+.profile-picture {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-right: 20px;
 }
 
-#profile .profile-info {
+.profile-info {
     margin-bottom: 20px;
 }
 
-#profile .profile-actions {
+.profile-actions {
     display: flex;
     justify-content: space-between;
 }
 
-#profile button {
+button {
     width: 150px;
     height: 40px;
     background-color: #4CAF50;
@@ -46,20 +46,20 @@
     margin-bottom: 20px;
 }
 
-#profile button:hover {
+button:hover {
     background-color: #3e8e41;
 }
 
-#profile .input-group {
+.input-group {
     margin-bottom: 20px;
 }
 
-#profile .input-group label {
+.input-group label {
     display: block;
     margin-bottom: 10px;
 }
 
-#profile .input-group input {
+.input-group input {
     width: 100%;
     height: 40px;
     margin-bottom: 20px;
@@ -67,6 +67,6 @@
     border: 1px solid #ccc;
 }
 
-#profile .hidden {
+.hidden {
     display: none;
 }
