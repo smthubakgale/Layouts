@@ -1,5 +1,4 @@
 /* Global Styles */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -50,9 +49,9 @@ body {
 
 .top-nav .about-link{
   margin-left: auto;
-}
+} 
 .top-nav .home-link2{
-  display:none;
+  flex: 1;
 }
 .top-nav .logo img{
   width:25px; 
@@ -60,69 +59,27 @@ body {
   margin-top:-5px; 
   margin-bottom:-8px;
 }
-/* Side Navigation */
-.aside-toggle {
-    display: none;
-  }
-.side-nav {
-  flex-basis: 250px;
-  flex-shrink: 0;
-  background-color: #f9f9f9;
-  padding: 1em;
-  overflow-y: auto;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+
+/**/
+.bottom-menu{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  right:0px;
+  box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.2);
+  padding:5px;
 }
 
-.side-nav .contact-link2 , .side-nav .about-link2{
-  display:none;
+.bottom-menu ul{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style:none;
 }
 
-.side-nav .docs-nav {
-  padding: 0;
-}
-
-.side-nav .docs-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.side-nav .docs-nav li {
-  margin-bottom: 10px;
-}
-
-.side-nav .docs-nav a {
-  color: #333;
-  text-decoration: none;
-}
-
-.side-nav .docs-nav a:hover {
-  color: #ffa07a;
-}
-
-.side-nav .docs-nav input[type="checkbox"] {
-  display: none;
-}
-
-.side-nav .docs-nav input[type="checkbox"]:checked + label + ul {
-  display: block;
-}
-
-.side-nav .docs-nav label {
-  cursor: pointer;
-}
-
-.side-nav .docs-nav label:hover {
-  font-weight:bold;
-}
-
-.side-nav .docs-nav ul ul {
-  display: none;
-  padding-left: 20px;
-}
-
-.side-nav .docs-nav ul ul li {
-  margin-bottom: 5px;
+.bottom-menu li{
+  flex:1;
+  text-align:center;
 }
 /* Main Content */
 
@@ -244,118 +201,30 @@ body {
 /* Flex Container */
 
 .flex-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
+  padding:10px;
 }
 
 /* Responsive Design */
 /* Mobile Landscape or Tablet */
 @media only screen and (max-width: 768px) {
-  .main-content {
-    width:100%;
-  }
     .aside-toggle {
     display: block;
-  }
-  .side-nav{
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
-    .side-nav nav{
-      background-color: #ffa07a;
-      padding: 0;
-      width: 80%;
-      max-width: 300px;
-      height: 100%;
-      overflow-y: auto;
-      box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-    }
-    .side-nav .docs-nav{
-      padding:15px;
-    }
-   .side-nav .docs-nav a {
-      color: white; 
-    }
-    
-    .side-nav .docs-nav a:hover {
-      color: #333;
-    }
-  .flex-container {
-    flex-direction: column;
-  }
-  .side-nav {
-    flex-basis: 100%;
-    margin-bottom: 20px;
-  }
+  }    
   .main-content {
     margin-left: 0;
   }
 }
 /* Mobile Portrait */
 @media only screen and (max-width: 480px) {
-  .main-content {
-    width:100%;
-  }
   .top-nav .home-link , 
   .top-nav .pricing-link , 
   .top-nav .about-link , 
   .top-nav .contact-link{
     display:none;
-  }
-  .top-nav .home-link2{
-    display:block;
-  }
+  } 
   .aside-toggle {
     display: block;
-  }
-  .side-nav{
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
-    .side-nav nav{
-      background-color: #ffa07a;
-      padding: 0px;
-      width: 80%;
-      max-width: 300px;
-      height: 100%;
-      overflow-y: auto;
-      box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-    }
-    .side-nav .contact-link2 , .side-nav .about-link2{
-      display:block;
-    }
-    .side-nav .docs-nav{
-      padding:15px;
-    }
-   .side-nav .docs-nav a {
-      color: white; 
-    }
-    
-    .side-nav .docs-nav a:hover {
-      color: #333;
-    }
-  
-  .flex-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .side-nav {
-    padding: 0.5em;
-  }
+  }   
   .main-content {
     padding: 0.5em;
   }
@@ -363,12 +232,7 @@ body {
 
 /* Desktop */
 @media (min-width: 769px) {
-  .side-nav {
-    position: sticky;
-    top: 60px; /* Adjust based on top nav height */
-    max-height: calc(100vh - 50px);
-    overflow-y: auto;
-  }
+  
 }
 
 .mob-nav{
