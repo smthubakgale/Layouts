@@ -14,27 +14,41 @@ const alertCloseButtons = document.querySelectorAll('.alert .close-button');
 const asideToggle = document.querySelector('.aside-toggle'); 
 
 // Add event listeners
-function observeLinkTags(className = '', eventType = 'click', callback = () => {}) {
-  // Create a MutationObserver
+function observeLinkTags(className = '', eventType = 'click', callback = () => {}) 
+{
+  // Create a MutationObserver instance
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach((node) => {
-          if (node.classList.contains(className)) {
-            console.log('New element with class added:', node);
-            // Add the callback event listener to the new element
-            node.addEventListener(eventType, callback);
-          }
+          // Check if the added node or its children/sub-children contain the specific class
+          checkForClass(node, className);
         });
       }
     });
   });
-
-  // Observe the document body for changes
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-  });
+  
+  // Function to check if a node or its children/sub-children contain a specific class
+  function checkForClass(node, className) {
+    // Check if the node itself contains the specific class
+    if (node.classList && node.classList.contains(className)) { 
+      // Add the callback event listener to the new element
+      node.addEventListener(eventType, callback);
+    }
+  
+    // Recursively check the children and sub-children of the node
+    if(node.children){
+      Array.from(node.children).forEach((child) => {
+        checkForClass(child, className);
+      }); 
+    }
+  }
+  
+  // Configure the observer to watch for childList changes
+  const config = { childList: true, subtree: true };
+  
+  // Start observing the document body
+  observer.observe(document.body, config);
 }
 
 navLinks.forEach(link => link.addEventListener('click', handleNavLinkClick));
