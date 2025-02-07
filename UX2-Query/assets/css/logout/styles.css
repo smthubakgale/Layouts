@@ -15,7 +15,7 @@ body {
 button {
     width: 150px;
     height: 40px;
-    background-color: #4CAF50;
+    /*background-color: #4CAF50;*/
     color: #fff;
     padding: 10px;
     border: none;
@@ -23,6 +23,9 @@ button {
     cursor: pointer;
 }
 
+/*
 button:hover {
     background-color: #3e8e41;
 }
+*/
+
