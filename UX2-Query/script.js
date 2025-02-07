@@ -61,6 +61,15 @@ function addSectionId(css, sectionId) {
     var selectorMatch = rule.match(/([^{]+)/);
     if (selectorMatch) {
       console.log(selectorMatch);
+
+      var mat = selectorMatch.split('{');
+      var a = (mat.length == 2) ? mat[0] : '';
+      var b = (mat.length == 2) ? mat[1] : mat[0];
+
+
+      console.log(a);
+      console.log(b);
+      
       var selector = selectorMatch[1].trim();
       var modifiedSelector = `
 `     + `#${sectionId} `;
@@ -69,7 +78,7 @@ function addSectionId(css, sectionId) {
     }
   });
 
-  return modifiedRules.join('').replace('body' , '');
+  return modifiedRules.join('').replace('body' , '#' + sectionId);
 }
 function addSectionIdToJs(jsCode, sectionId) {
   // Use regular expressions to find and modify query selectors
