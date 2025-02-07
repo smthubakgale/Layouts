@@ -10,6 +10,7 @@ const subNavs = document.querySelectorAll('.sub-nav');
 const modals = document.querySelectorAll('.modal');
 const accordionTriggers = document.querySelectorAll('.accordion');
 const alertCloseButtons = document.querySelectorAll('.alert .close-button');
+const asideToggle = document.querySelector('.aside-toggle'); 
 
 // Add event listeners
 navLinks.forEach(link => link.addEventListener('click', handleNavLinkClick));
@@ -283,6 +284,15 @@ window.addEventListener('resize', () => {
   } 
 });
 
+asideToggle.addEventListener('click', () => { 
+   if(sideNav.classList.contains('mob-nav')){
+      sideNav.classList.remove('mob-nav');
+   }
+   else{
+      sideNav.classList.add('mob-nav');
+   }
+});
+
 document.addEventListener('click', (event) => { 
   if (!docsNav.contains(event.target) && sideNav.contains(event.target)) { 
     sideNav.classList.remove('mob-nav');
@@ -291,4 +301,3 @@ document.addEventListener('click', (event) => {
 
 // Check if mobile device
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
