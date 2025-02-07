@@ -14,13 +14,13 @@ const alertCloseButtons = document.querySelectorAll('.alert .close-button');
 const asideToggle = document.querySelector('.aside-toggle'); 
 
 // Add event listeners
-function observeLinkTags(selector = '', eventType = 'click', callback = () => {}) {
+function observeLinkTags(className = '' = '', eventType = 'click', callback = () => {}) {
   // Create a MutationObserver
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach((node) => {
-          if (node.matches(selector)) {
+          if (node.classList.contains(className)) {
             // Add the callback event listener to the new element
             node.addEventListener(eventType, callback);
           }
@@ -37,15 +37,15 @@ function observeLinkTags(selector = '', eventType = 'click', callback = () => {}
 }
 
 navLinks.forEach(link => link.addEventListener('click', handleNavLinkClick));
-observeLinkTags('.nav-link', 'click', handleNavLinkClick);
+observeLinkTags('nav-link', 'click', handleNavLinkClick);
 subNavTriggers.forEach(trigger => trigger.addEventListener('mouseover', handleSubNavTrigger));
-observeLinkTags('.dropdown','mouseover', handleSubNavTrigger);
+observeLinkTags('dropdown','mouseover', handleSubNavTrigger);
 subNavTriggers.forEach(trigger => trigger.addEventListener('mouseout', handleSubNavTrigger)); 
-observeLinkTags('.dropdown', 'mouseout', handleSubNavTrigger);
+observeLinkTags('dropdown', 'mouseout', handleSubNavTrigger);
 accordionTriggers.forEach(trigger => trigger.addEventListener('click', handleAccordionTrigger));
-observeLinkTags('.accordion', 'click', handleAccordionTrigger);
+observeLinkTags('accordion', 'click', handleAccordionTrigger);
 alertCloseButtons.forEach(button => button.addEventListener('click', handleAlertClose));
-observeLinkTags('.alert .close-button', 'click', handleAlertClose);
+observeLinkTags('close-button', 'click', handleAlertClose);
 
 function clearSections() {
   document.querySelectorAll('section').forEach((section) => {
