@@ -4,6 +4,7 @@ const sideNav = document.querySelector('.side-nav');
 const docsNav = document.querySelector('.docs-nav');
 const mainContent = document.querySelector('.main-content'); 
 const sections = document.querySelectorAll('.section');
+
 const navLinks = document.querySelectorAll('.nav-link');
 const subNavTriggers = document.querySelectorAll('.dropdown');
 const subNavs = document.querySelectorAll('.sub-nav');
@@ -13,11 +14,38 @@ const alertCloseButtons = document.querySelectorAll('.alert .close-button');
 const asideToggle = document.querySelector('.aside-toggle'); 
 
 // Add event listeners
+function observeLinkTags(selector = '', eventType = 'click', callback = () => {}) {
+  // Create a MutationObserver
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'childList') {
+        mutation.addedNodes.forEach((node) => {
+          if (node.matches(selector)) {
+            // Add the callback event listener to the new element
+            node.addEventListener(eventType, callback);
+          }
+        });
+      }
+    });
+  });
+
+  // Observe the document body for changes
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+}
+
 navLinks.forEach(link => link.addEventListener('click', handleNavLinkClick));
+observeLinkTags('.nav-link', 'click', handleNavLinkClick);
 subNavTriggers.forEach(trigger => trigger.addEventListener('mouseover', handleSubNavTrigger));
+observeLinkTags('.dropdown','mouseover', handleSubNavTrigger);
 subNavTriggers.forEach(trigger => trigger.addEventListener('mouseout', handleSubNavTrigger)); 
+observeLinkTags('.dropdown', 'mouseout', handleSubNavTrigger);
 accordionTriggers.forEach(trigger => trigger.addEventListener('click', handleAccordionTrigger));
+observeLinkTags('.accordion', 'click', handleAccordionTrigger);
 alertCloseButtons.forEach(button => button.addEventListener('click', handleAlertClose));
+observeLinkTags('.alert .close-button', 'click', handleAlertClose);
 
 function clearSections() {
   document.querySelectorAll('section').forEach((section) => {
