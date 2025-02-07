@@ -12,13 +12,14 @@ const accordionTriggers = document.querySelectorAll('.accordion');
 const alertCloseButtons = document.querySelectorAll('.alert .close-button'); 
 
 // Add event listeners
-function observeLinkTags(className = '' , eventType = 'click', callback = () => {}) {
+function observeLinkTags(className = '', eventType = 'click', callback = () => {}) {
   // Create a MutationObserver
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach((node) => {
           if (node.classList.contains(className)) {
+            console.log('New element with class added:', node);
             // Add the callback event listener to the new element
             node.addEventListener(eventType, callback);
           }
