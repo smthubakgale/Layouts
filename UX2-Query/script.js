@@ -60,7 +60,7 @@ function addSectionId(css, sectionId) {
   rules.forEach(function(rule) {
     var selectorMatch = rule.match(/([^{]+)/);
     if (selectorMatch) {
-      console.log(selectorMatch);
+      console.log(selectorMatch.toString());
 
       var mat = (selectorMatch + "").split('{');
       var a = (mat.length == 2) ? mat[0] : '';
