@@ -43,13 +43,6 @@ function observeLinkTags(selector = '', eventType = 'click', callback = () => {}
   });
 }
 
-  // Observe the document body for changes
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-  });
-}
-
 navLinks.forEach(link => link.addEventListener('click', handleNavLinkClick));
 observeLinkTags('.nav-link', 'click', handleNavLinkClick);
 subNavTriggers.forEach(trigger => trigger.addEventListener('mouseover', handleSubNavTrigger));
