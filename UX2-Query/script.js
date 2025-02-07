@@ -67,13 +67,13 @@ function addProfileSelector(cssCode, sectionId) {
                     d += '\n';
                   }
                   else {
-                    d += `#${sectionId}` + s;
+                    d += `#${sectionId} ` + s;
                   }
               });
 
             console.log(d);
           
-            const newSelector = `#${sectionId} ${selector.trim()}`;
+            const newSelector = a + d;
             cssCode = cssCode.replace(selector, newSelector);
         });
     }
