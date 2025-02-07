@@ -52,6 +52,7 @@ body {
 } 
 .top-nav .home-link2{
   flex: 1;
+  text-align:left;
 }
 .top-nav .logo img{
   width:25px; 
