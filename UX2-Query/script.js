@@ -46,6 +46,12 @@ function addSectionId(cssCode, sectionId) {
         selectors.forEach(selector => {
 
             var mat = selector.split('}');
+            var m1  = selector.indexOf("}") == -1 ? '' : selector.substring(0 , selector.lastIndexOf('}'));
+            var m2 = selector.indexOf("}") == -1 ? '' : selector.slice(selector.lastIndexOf('}') + 1);
+
+           if(!(m1 == '' && m2 ==  '')){
+             mat = [m1 , m2];
+           }
       
             var a = (mat.length == 2) ? mat[0] : '';
             var b = (mat.length == 2) ? mat[1] : mat[0];
@@ -66,7 +72,12 @@ function addSectionId(cssCode, sectionId) {
                     
                     e.forEach((s2 , k2)=>
                     { 
-                       d += `#${sectionId} ` + s2;
+                       if(s2.indexOf('@media') == -1){
+                          d += `#${sectionId} ` + s2; 
+                       }
+                      else {
+                        d += s2;
+                      }
 
                        if (e.length > 1 && k2 != e.length - 1) {
                           d += ',';
